@@ -1,0 +1,36 @@
+
+
+
+
+Step 1: Do drop down for Cities
+
+Create an env called 
+=cities
+
+value
+Pretoria|Pretoria,Kwekwe|Kwekwe,Cape Town|CapeTown
+
+
+
+Step 2
+Script to get the values
+
+   var citiesList = tw.env.cities;
+  var rows =     citiesList.split(",");
+
+    for(var x=0; x<  rows.length; x++)
+    {
+    
+        var columns =  rows[x].split("|");
+        tw.local.cities[x] = {};
+        tw.local.cities[x].name =columns[0];
+        tw.local.cities[x].value=columns[1];
+    }
+
+
+Step 3
+---map it on the single select control
+
+
+
+
