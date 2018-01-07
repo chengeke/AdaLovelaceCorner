@@ -1,0 +1,27 @@
+Validation , add a script to add the following:
+
+Add a script after the coach with the following logic
+
+This script will block submission of a coach if the account Number field is not populated 
+
+//  This JavaScript will run within the browser and must use the client-side JavaScript syntax supported by the browser. For example,
+//	      - To instantiate a complex object:					- To instantiate a list:
+//				tw.local.customer = {};								tw.local.addresses = [];
+//				tw.local.customer.name = "Jane";				tw.local.addresses[0] = {};
+
+tw.system.coachValidation = {};
+tw.system.coachValidation.validationErrors = [];
+tw.local.errors = false;
+//block submission if account number is not populated
+if(tw.local.sdddd.AccountNumber == null    ||    tw.local.sdddd.AccountNumber == "")
+{
+tw.local.errors = true;
+tw.system.coachValidation.addValidationError ("tw.local.sdddd.AccountNumber", "Enter the Account Number");
+}
+
+-put a decision point  with value below just after the script ,
+1. Add a "Stay on PAge" intermediate component from the pallet 
+2. if boolean is true continue to end of Human Service else go to the "Stay on Page"
+3. Put this script on the decision point   tw.system.coachValidation.validationErrors.length==0
+
+
